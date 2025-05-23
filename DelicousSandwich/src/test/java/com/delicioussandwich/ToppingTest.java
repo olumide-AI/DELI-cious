@@ -3,6 +3,9 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ToppingTest {
+    /**
+     * Unit test for all Topping price, regular, premium and extra-premimum
+     */
 
     @Test
     public void testThatRegularToppingWillAlwaysBeZero(){

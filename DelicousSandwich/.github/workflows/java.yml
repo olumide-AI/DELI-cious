@@ -1,4 +1,4 @@
-name: Java CI
+name: Java CI with Maven
 
 on:
   push:
@@ -8,11 +8,10 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v3
 
       - name: Set up JDK 17
@@ -21,11 +20,8 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Compile code
-        run: javac -d out $(find src -name "*.java")
+      - name: Build with Maven
+        run: mvn -B compile
 
-      - name: Run tests
-        run: |
-          mkdir -p test-results
-          javac -cp ".:lib/junit-5.9.1.jar" -d out $(find test -name "*.java")
-          java -jar lib/junit-platform-console-standalone-1.9.1.jar -cp out --scan-classpath
+      - name: Run tests with Maven
+        run: mvn test

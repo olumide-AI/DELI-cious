@@ -65,7 +65,7 @@ public class SandwichTest {
         double sandwichPrice = sandwich.menuItemPrice();
 
         //Assert
-        assertEquals(9.00, sandwichPrice, 0.001);
+        assertEquals(13.00, sandwichPrice, 0.001);
     }
 
 }

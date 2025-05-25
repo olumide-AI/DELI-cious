@@ -55,4 +55,17 @@ public class SandwichTest {
         assertEquals(7.00, sandwichPrice, 0.001);
     }
 
+    @Test
+    public void basicSandwichWithAnotherPremiumToppingTest(){
+        //Arrange
+        Sandwich sandwich = new Sandwich("12", "white", false);
+        sandwich.addTopping(new PremiumTopping("Steak", true));
+
+        //Act
+        double sandwichPrice = sandwich.menuItemPrice();
+
+        //Assert
+        assertEquals(9.00, sandwichPrice, 0.001);
+    }
+
 }
